@@ -1,4 +1,4 @@
-#formación checkpoint 27/03/17 INICIO
+#formación checkpoint 27/03/17
 
 pass: vpn123
 
