@@ -734,18 +734,197 @@ git push origin master
 
 Esto se hace normalmente cuando pueden subir varias personas a la vez y entonces puede haber cambios antes o despues de subir los nuestros.
 
+TRABAJANDO CON REPOSITORIOS FORKED CLONADOS
+
+Cuando trabajamos con repositorios clonados en los que hemos hecho fork es necesario tener en cuenta que vamos a tener una rama mas que se va a llamar upstream/master que va a ser la conexión entre el repositorio original con nuestro repositorio clonado, como en el paso anterior es importante hacer siempre un git fetch para tener los últimos cambios del proyecto original.
+
+En local tendremos 3 ramas 
+
+origin/master 	nuestra rama del repositorio clonado de nuestra cuenta
+upstream/master	la rama que conecta con el repositorio original 
+master				la rama que estamos trabajando en local
+
+Repositorios "forked"
+
+La idea es:
+
+- Siempre que vayamos a iniciar cambios, actualizarnos con el proyecto principal.
+- Hacer nuestros cambios, experimentos, etc.
+- Revisar nuevamente si no hubo cambios con el proyecto principal.
+- Subir a nuestro forked repository todo lo que hemos hecho.
+- Si queremos, crear un pull request para colaboración.
+
+workflow
+
+Tarea | Explicación
+---|---
+Crear ó entrar a la carpeta del proyecto | Creamos la carpeta y clonamos el proyecto
+git remote add origin [HTTPS ó SSH del proyecto forked] |Creamos la conexión con nuestro repositorio
+git remote add upstream [HTTPS ó SSH del proyecto "main"]| Creamos la conexión con el proyeco original
+git fetch upstream | nos traemos todos los cambios del repositorio original
+git merge origin/upstream | fusionamos los cambios del repo original con nuestra rama 
+git fetch origin | traemos cambios de nuestra propia rama ( en caso de que estemos colaborando)
+git merge origin/master | fusionamos esos cambios
+Hacer cambios en local | .
+git fetch upstream | traemos cambios de repo original
+git merge origin/upstream | fusionamos con la rama 
+git push origin master | subimos cambios al repositorio
+
+- practica pull request
+
+Mbp:Desktop kapi_tan$ mkdir README
+Mbp:Desktop kapi_tan$ cd README/
+Mbp:README kapi_tan$ ls
+Mbp:README kapi_tan$ git init
+Initialized empty Git repository in /Users/kapi_tan/Desktop/README/.git/
+Mbp:README kapi_tan$ git remote add origin git@github.com:RodolfoMiguelLopez/README.git
+Mbp:README kapi_tan$ git remote -v
+origin	git@github.com:RodolfoMiguelLopez/README.git (fetch)
+origin	git@github.com:RodolfoMiguelLopez/README.git (push)
+Mbp:README kapi_tan$ git remote add upstream https://github.com/anjogago85/README.git
+Mbp:README kapi_tan$ git remote -v
+origin	git@github.com:RodolfoMiguelLopez/README.git (fetch)
+origin	git@github.com:RodolfoMiguelLopez/README.git (push)
+upstream	https://github.com/anjogago85/README.git (fetch)
+upstream	https://github.com/anjogago85/README.git (push)
+Mbp:README kapi_tan$ Creamos un archivo con la cuenta anjogago85
+-bash: Creamos: command not found
+Mbp:README kapi_tan$ git fetch origin
+remote: Counting objects: 4, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 4 (delta 0), reused 4 (delta 0), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From github.com:RodolfoMiguelLopez/README
+ * [new branch]      master     -> origin/master
+Mbp:README kapi_tan$ git merge origin/master
+Mbp:README kapi_tan$ hasta aquí solo tenemos los archivos de nuestro repositorio el nuevo que hizo anjogago no lo tengo
+-bash: hasta: command not found
+Mbp:README kapi_tan$ git fetch upstream
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/anjogago85/README
+ * [new branch]      master     -> upstream/master
+Mbp:README kapi_tan$ git merge upstream/master
+Updating 8dfe5f0..fe8cd43
+Fast-forward
+ amazing.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 amazing.txt
+Mbp:README kapi_tan$ ahora que ya tenemos todo sincronizado vamos a proponer un archivo nuevo
+-bash: ahora: command not found
+Mbp:README kapi_tan$ touch españa.txt
+Mbp:README kapi_tan$ git add -A
+Mbp:README kapi_tan$ git commit -m "propuesta"
+[master 3963135] propuesta
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 españa.txt
+Mbp:README kapi_tan$ ahora subimos todos los cambios realizados a nuestro propio repositorio
+-bash: ahora: command not found
+Mbp:README kapi_tan$ git push origin master
+Counting objects: 6, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 583 bytes | 0 bytes/s, done.
+Total 6 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+To github.com:RodolfoMiguelLopez/README.git
+   8dfe5f0..3963135  master -> master
+
+Despues de este paso me voy a github y le hago un pull request y le pongo un comentario con lo que quiero modificar para que lo acepten o no al proyecto , puede hacer un intercambio de mensajes previo antes de aceptar la fusión y una vez aceptada habrás contribuido con tu código en un repositorio remoto.
+
+## Administración de un proyecto en Github
 
 
+**Issues**
+Comencemos definiendo lo que es un issue. En inglés, significa problema, en GitHub, un issue es la unidad de trabajo designada para realizar una mejora en un Sistema informático. Un issue puede ser el arreglo de un fallo, una característica pedida, una tarea, una solicitud de Documentación en específico y todo tipo de solicitud al equipo de desarrollo. Con las issues se puede asignar una tarea a un colaborador de tu repositorio o proyecto, lo cual permite una mejor organización en proyectos.
+
+**Labels**
+Estos issues tienen etiquetas, las cuales sirven para poder filtrar la búsqueda de estas y sirven precisamente para indicar la idea principal que esta tarea implica.
+
+**Milestone**
+Los milestones. Estas son categorías que se utilizan en las issues para tener un filtro más adecuado de la información. Cada milestone puede tener una fecha programada indicando el tiempo que es necesario para cumplir cierta tarea. Puede ver que si la issue es una pregunta, cuantas issues son necesarias para completar la milestone, el porcentaje que se lleva de la milestone , cuanto tiempo falta para que expire, si  se requiere programar o investigar algo, etc. Desde ese momento tenga la idea antes de abrir el issue.
+Milestones: son líneas de tiempo para acciones concretas por ejemplo agregar una nueva función o arreglar un problema o implementar algo planeado. Se les puede poner fechas para muy util por si tenemos fechas de entrega.
+
+**Wiki**
+Las wikis en Github no són documentación se usa para llevar una historia del proyecto de manera mas humana, podemos ir añadiendo un roadmap , wireframes , screenshots , a diferencia de los README.md del inicio del proyecto que son más directos y nos dicen que es como se usa, como se instala y van al grano.
+
+##Deployment en AWS
+
+- Crear Cuenta
+- EC2 Dashboard
+- Network and Security
+	- Create Key Pair
+	- Descargamos loquesea.pem
+	- Le damos permisos de solo lectura al archivo ( opcional )
+```
+chmod 0600 ejemplo.pem
+```
+	- Security Groups
+		- Nuevo Grupo
+		- name: load-balancer
+		- description: Allow 80
+		- Add Rule
+		- Type: HTTP
+		- Protocol: TCP
+		- Port; 80
+		- Source: Anywhere
+		- Create
+- Load Balancing
+	- Load Balancers
+		- Create Load Balancer
+		- Load Balancer name: web-loadbalancer
+		- assing security groups
+		- El security group que hemos creado.
+		- Configure Health Check
+		- Add EC2 Instances
+		- No tocar nada hasta create
+		- Aqui ya tenemos creado el load balancer
+- Instances
+	- Instances
+		- Launch instances
+		- amazon linux
+		- t2 micro
+		- advanced details
+		- as text
+		- pegamos código 
+
+Para instalar todo lo que necesita el servidor
+```
+#! /bin/bash -ex
+yum update -y
+yum groupinstall -y "Web Server" "MySQL Database" "PHP Support"
+service httpd start
+```
+		- next add storage
+		- next add tag
+			- value: web-ejercicio
+		- configure security group
+			- Elegimos el load balancer creado anteriormente
+			- Continue
+			- Launch
+			- Pide el archivo .pem
+			- launch instance
+			- 
 
 
-
-
+1. El permiso que hay que darle al archivo de la llave descargada es 0600: 
+chmod 0600 [nombre archivo key]
+2. El comando para conectarse al servidor es:
+ssh -i [ruta a archivo key.pem] ec2-user@[Public IP]
+3. Instalar git en el servidor:
+sudo yum install git-all
+4. Generar ssh key y colocar la pública en GitHub.
+5. Hacer git clone.
 
 POR AQUI
 
-https://platzi.com/clases/git-github/concepto/navegacion-entre-commits/f-proyecto-con-lineas-de-tiempo-alternas/material/
+https://platzi.com/clases/git-github/concepto/workflow-dinamico-en-equipos/workshop-deployment-en-web-hosting/material/
 
+Clase 28
 
+http://git.miguelnieva.com/#/292
 
 
 
