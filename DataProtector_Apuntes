@@ -66,6 +66,31 @@ Ficheros configuración
   variables a nivel local
   no requiere reinicio de ningun servicio
   
+  #Instalación
+  
+  Cell Manager (Obligatorio)
+  Installation Server (Opcional)
+  
+  Product Documentation ( dentro del cell manager o del user interface carpeta docs)
+  
+  Requerimientos de hardware
+  
+  Cell manager  4gb 1,5gb+idb
+  installation server   512mb 2gb
+  
+  DP 9.00 Cell Manager Procesos
+  
+  5555 puerto de comunicación con el cell manager
+  la conexión debe de estar configurada como Outbonf connection are allowed
+  
+  para borrar un cliente --> export of clients ( opcionalmente se puede eliminar el cliente)
+  
+  
+  
+  
+  
+  
+  
   
   
   
