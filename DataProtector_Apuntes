@@ -85,12 +85,73 @@ Ficheros configuración
   
   para borrar un cliente --> export of clients ( opcionalmente se puede eliminar el cliente)
   
+  LICENCIAMIENTO (funciona solo en el cell manager con la ip que digamos si la ip cambia hay que avisar)
+  
+  - Instant-On (30Dias) Primera instalación
+  - Permanent
+  - Emergency (Para probar apps)
+  
+  omnicc ( por CLI )
+  
+  POhysical devices in data protector
+  
+  device type  | physical medium
+  Standalone | Disk Tape
+  Backup to disk | disk
+  Stacker | Tape
+  SCSI library | disk tape
+  Jukebox | disk MD
+  File Library | disk ( es licenciado por teras9
+  External control | tape
+  StorageTeck ACS library | tape
+  
+Device tools (herramienta de diagnosis de librerías) se utiliza para buscar problemas, actualizar firmware, test.
+Media Pools (Agrupación de cintas) no tiene porque tener cintas asignadas puede haber un (freepool) desde el cual van rotando las cintas
+por todos los pools a medida que sean necesarias.
+politicas del pool:
+ - media allocation policy : appendable y loose 
+Condiciones de uso de la cinta
+- 36 meses  | Máximos aceptables 96 Meses
+- 250 sobreescrituras | Máximos aceptables 500 sobreescrituras
+- Colores 
+  - verde : Buena 
+  - Amarillo : regular
+  - Roja: Mala (segun las condiciones) no hace backup con esta cinta pero si se restaura.
+para cambiar los estados de las cintas se puede usar el siguiente comando
+
+omnimm -reset_poor_medium_id (el medium_id lo sacamos de la cinta)
+verify (para comprobar la idoneidad de la cinta)
+formatear cinta ( ultimo intento para recuperar cinta)
+Recycle --> para quitar la protección
+  
+Los parámetros de almacenamiento en la cinta se pueden parametrar depende de las cintas a usar para mejorar el rendimiento.  
+Las etiquetas de las cintas no son necesarias pero son utiles para el trabajo del administrador de backup
+
+Location tracking and priority
+localización de la ubicación de las cintas, armario ignifugo , en movimiento, ubicacion alternativa.
+
   
   
   
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+http://es.dumpblaster.com/Certification-HPE.html
   
   
   
