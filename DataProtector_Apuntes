@@ -1,1 +1,74 @@
-Apuntes Curso Dataprotector
+#Apuntes Curso Dataprotector
+
+Protección LAN/WAN/SAN
+
+Tipos de BACKUP
+
+- Direct Attached backup
+- Network backup
+- SAN attached backup
+- Array based replica backup(zero downtime backup)
+
+Entorno catalyst (hp) Tecnología de Desduplicación
+
+Cell Manager (servidor central de la app) solo podemos tener 1 por entorno
+  - windows a partir de 2008 / linux / hpx
+  - Se instala localmente no se puede instalar por red
+  - No existen guías STIC para securizar
+  - Para parar los servicios se puede hacer por terminal (onmisv -start/-stop/-stat)
+  - Recomendable un Full Backup de la base de datos de la Cell Manager (Diario)
+  - Los ficheros de configuración de data protector están en texto plano
+    Ficheros de configuración del CELL MANAGER
+    - Global
+    - OmNIrc
+    
+Installation server (servidor repositorio) Es opcional pero conveniente para desplegar actualizaciones.
+DP user interface (consola de dataprotector) solo para windows
+  - Incluye Comandos CLI
+ - Hay reportes básicos dentro de User interface 
+ - Web Reporting Interface (Informes avanzados) **SON DE PAGO**
+ 
+Cell client ( Clientes con agentes instalados)
+Disk Agent ( Agente para los clientes) tambien se puede instalar en el cell manager backup a nivel de ficheros
+  - Usa puertos dinámicos pero se pueden acotar
+    - Port Range
+  - Usa Volume Shadow Copy para hacer las copias en caliente si no queremos usarlo el problema es que los archivos abiertos no podrá hacer copia.
+Media agent ( Agente para mandar los datos (Los que vengan del Disk Agent) a la librería correspondiente por ejemplo Cinta)
+  - instalación Remota o local
+  - Este servidor tiene que ser físico no puede ser virtual.
+Integration Agent ( De entorno )
+- APIS de integración
+- La ventaja es que no tenemos que parar los servidores para hacer las copias.
+  ( se recomienda hacer un backup Offline)
+- Matriz de compatibilidad de versiones de software
+Installation server
+- Repositorio de software para los programas de dataprotector
+Los procesos se pueden secuenciar para que no todas las tareas funcionen a la vez
+
+El uso de licencias es concurrente, si se utiliza secuencialmente los Integration Agent van a funcionar sin problema. No es necesario tener muchas licencias.
+
+- Granular Recovery Extensión Agent ( Recuperaciones Granulares ) **DE PAGO**
+Es recomendable hacer un EXPORT de la base de datos a fichero (por si acaso falla el programa de backup)
+
+IDB ( La base de datos del cell manager)
+- no requiere mantenimiento
+- Se pueden encriptar comunicaciones con el media agent
+- se pueden encriptar los backups con algoritmo simple ( Gratis ) algoritmo mas complejos ( de pago )
+
+Rutas de configuración de Data Protector
+- dp_home
+- dp_config
+- dp_var
+Ficheros configuración 
+- DP tuning via global file
+  Hay que reiniciar servicios una vez modificado
+- DP tuning via omnirc file
+  variables a nivel local
+  no requiere reinicio de ningun servicio
+  
+  
+  
+  
+  
+  
+  
