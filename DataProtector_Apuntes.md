@@ -152,6 +152,10 @@ Cuando lanzamos la tarea de backup y le especificamos el destino por ejemplo una
 omnitrig: para gestionar las planificaciones es como el cron de linux
 omnisv -stats para ver servicios arrancados en el cell manager
 
+ProgramData\omniback\log --> logs
+Modo Debug --> te lanza lo que hagas con modo debug se guardan en \tmp\archivodetexto_debug.txt
+
+
 
 
 
