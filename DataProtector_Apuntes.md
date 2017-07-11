@@ -139,7 +139,7 @@ FULL + INCREMENTAL + INCREMENTAL ..... --> Se puede consolidar y hacer un full d
 hay incrementales 1,2,3,4 (no se suelen usar normalmente)
 
 dias |incrementales|.|.|.|.|.|
----|---|-|-|-|-|-|-|-|
+---|---
 L|   M|   X|   J|   V|   S|   D|
 full| Incre| incre 1| incre | incre 1
 <---|||||||
