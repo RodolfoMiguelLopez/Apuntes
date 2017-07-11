@@ -130,7 +130,30 @@ Las etiquetas de las cintas no son necesarias pero son utiles para el trabajo de
 Location tracking and priority
 localización de la ubicación de las cintas, armario ignifugo , en movimiento, ubicacion alternativa.
 
-  
+----------------------------Dia 2
+
+BACKUP
+
+L   M   X   J   V   S   D
+FULL + INCREMENTAL + INCREMENTAL ..... --> Se puede consolidar y hacer un full de todo esto se llama un Backup sintético
+hay incrementales 1,2,3,4 (no se suelen usar normalmente)
+
+dias |incrementales
+---|---
+L|   M|   X|   J|   V|   S|   D|
+full| Incre| incre 1| incre | incre 1
+<---|||||||
+<---|<---||||||
+<---|<---|---|||||
+<---|<---|---|<---||||
+<---||<---|---|---|||
+
+
+
+
+omnitrig: para gestionar las planificaciones es como el cron de linux
+
+
   
   
 
