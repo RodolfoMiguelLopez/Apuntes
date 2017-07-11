@@ -41,6 +41,7 @@ Integration Agent ( De entorno )
 - La ventaja es que no tenemos que parar los servidores para hacer las copias.
   ( se recomienda hacer un backup Offline)
 - Matriz de compatibilidad de versiones de software
+- Cuando HP vende licencias de Integration Agent ( no se especifica el servicio, vmware, sql ) por lo que podemos usar indistintamente los backups de uno u otro servicio mientras no agotemos el numero de licencias que dispongamos , la forma óptima es hacerlo de forma secuencial.
 Installation server
 - Repositorio de software para los programas de dataprotector
 Los procesos se pueden secuenciar para que no todas las tareas funcionen a la vez
@@ -140,14 +141,16 @@ hay incrementales 1,2,3,4 (no se suelen usar normalmente)
 
 ![Explicación niveles Incrementales](https://docs.oracle.com/cd/B19306_01/backup.102/b14234/img/obadm019.gif)
 
+Backup Session Manager (proceso) de tarea de backup
 
+Datalist --> Filesystem.
+Barlist --> Copias de las integraciones.
+
+Cuando lanzamos la tarea de backup y le especificamos el destino por ejemplo una unidad de cinta podemos especificar el drive (Boton Derecho) y propiedaes y elegir el media pool a donde queremos mandar la información.
 
 
 omnitrig: para gestionar las planificaciones es como el cron de linux
-
-
-  
-  
+omnisv -stats para ver servicios arrancados en el cell manager
 
 
 
@@ -155,6 +158,10 @@ omnitrig: para gestionar las planificaciones es como el cron de linux
 
 
 
+alternatives open source
+
+http://blog.bacula.org/
+Bareos --> https://www.netways.de/fileadmin/images/Events_Trainings/Events/OSDC/2016/Slides_2016/Maik_Aussendorf_-_bareos_Backup_Integration_with_Standard_Open_Source_Tools.pdf
 
 
 
