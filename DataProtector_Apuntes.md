@@ -138,15 +138,7 @@ L   M   X   J   V   S   D
 FULL + INCREMENTAL + INCREMENTAL ..... --> Se puede consolidar y hacer un full de todo esto se llama un Backup sintético
 hay incrementales 1,2,3,4 (no se suelen usar normalmente)
 
-dias |incrementales|.|.|.|.|.|
----|---
-L|   M|   X|   J|   V|   S|   D|
-full| Incre| incre 1| incre | incre 1
-<---|||||||
-<---|<---||||||
-<---|<---|---|||||
-<---|<---|---|<---||||
-<---||<---|---|---|||
+![Explicación niveles Incrementales](https://docs.oracle.com/cd/B19306_01/backup.102/b14234/img/obadm019.gif)
 
 
 
