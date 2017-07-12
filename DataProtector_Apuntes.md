@@ -23,35 +23,35 @@ Cell Manager (servidor central de la app) solo podemos tener 1 por entorno
     - OmNIrc
     
 Installation server (servidor repositorio) Es opcional pero conveniente para desplegar actualizaciones.
-DP user interface (consola de dataprotector) solo para windows
+**DP user interface (consola de dataprotector)** solo para windows
   - Incluye Comandos CLI
  - Hay reportes básicos dentro de User interface 
  - Web Reporting Interface (Informes avanzados) **SON DE PAGO**
  
-Cell client ( Clientes con agentes instalados)
-Disk Agent ( Agente para los clientes) tambien se puede instalar en el cell manager backup a nivel de ficheros
+**Cell client ( Clientes con agentes instalados)**
+**Disk Agent ( Agente para los clientes)** tambien se puede instalar en el cell manager backup a nivel de ficheros
   - Usa puertos dinámicos pero se pueden acotar
     - Port Range
   - Usa Volume Shadow Copy para hacer las copias en caliente si no queremos usarlo el problema es que los archivos abiertos no podrá hacer copia.
-Media agent ( Agente para mandar los datos (Los que vengan del Disk Agent) a la librería correspondiente por ejemplo Cinta)
+**Media agent ( Agente para mandar los datos (Los que vengan del Disk Agent) a la librería correspondiente por ejemplo Cinta)**
   - instalación Remota o local
   - Este servidor tiene que ser físico no puede ser virtual.
-Integration Agent ( De entorno )
+**Integration Agent ( De entorno )**
 - APIS de integración
 - La ventaja es que no tenemos que parar los servidores para hacer las copias.
   ( se recomienda hacer un backup Offline)
 - Matriz de compatibilidad de versiones de software
 - Cuando HP vende licencias de Integration Agent ( no se especifica el servicio, vmware, sql ) por lo que podemos usar indistintamente los backups de uno u otro servicio mientras no agotemos el numero de licencias que dispongamos , la forma óptima es hacerlo de forma secuencial.
-Installation server
+**Installation server**
 - Repositorio de software para los programas de dataprotector
 Los procesos se pueden secuenciar para que no todas las tareas funcionen a la vez
 
-El uso de licencias es concurrente, si se utiliza secuencialmente los Integration Agent van a funcionar sin problema. No es necesario tener muchas licencias.
+**El uso de licencias es concurrente, si se utiliza secuencialmente los Integration Agent van a funcionar sin problema. No es necesario tener muchas licencias.**
 
-- Granular Recovery Extensión Agent ( Recuperaciones Granulares ) **DE PAGO**
+**Granular Recovery Extensión Agent ( Recuperaciones Granulares ) DE PAGO**
 Es recomendable hacer un EXPORT de la base de datos a fichero (por si acaso falla el programa de backup)
 
-IDB ( La base de datos del cell manager)
+**IDB ( La base de datos del cell manager)**
 - no requiere mantenimiento
 - Se pueden encriptar comunicaciones con el media agent
 - se pueden encriptar los backups con algoritmo simple ( Gratis ) algoritmo mas complejos ( de pago )
@@ -60,6 +60,7 @@ Rutas de configuración de Data Protector
 - dp_home
 - dp_config
 - dp_var
+
 Ficheros configuración 
 - DP tuning via global file
   Hay que reiniciar servicios una vez modificado
@@ -67,7 +68,7 @@ Ficheros configuración
   variables a nivel local
   no requiere reinicio de ningun servicio
   
-  #Instalación
+##Instalación
   
   Cell Manager (Obligatorio)
   Installation Server (Opcional)
@@ -88,26 +89,28 @@ Ficheros configuración
   
   LICENCIAMIENTO (funciona solo en el cell manager con la ip que digamos si la ip cambia hay que avisar)
   
-  - Instant-On (30Dias) Primera instalación
+  - Instant-On (60Dias) Primera instalación
   - Permanent
   - Emergency (Para probar apps)
   
-  omnicc ( por CLI )
+  omnicc (por CLI)
   
-  POhysical devices in data protector
+  Physical devices in data protector
   
+  Device name | Type Medium
+  ---|---
   device type  | physical medium
   Standalone | Disk Tape
   Backup to disk | disk
   Stacker | Tape
   SCSI library | disk tape
   Jukebox | disk MD
-  File Library | disk ( es licenciado por teras9
+  File Library | disk
   External control | tape
   StorageTeck ACS library | tape
   
-Device tools (herramienta de diagnosis de librerías) se utiliza para buscar problemas, actualizar firmware, test.
-Media Pools (Agrupación de cintas) no tiene porque tener cintas asignadas puede haber un (freepool) desde el cual van rotando las cintas
+**Device tools (herramienta de diagnosis de librerías)** se utiliza para buscar problemas, actualizar firmware, test.
+**Media Pools (Agrupación de cintas)** no tiene porque tener cintas asignadas puede haber un (freepool) desde el cual van rotando las cintas
 por todos los pools a medida que sean necesarias.
 politicas del pool:
  - media allocation policy : appendable y loose 
@@ -131,9 +134,7 @@ Las etiquetas de las cintas no son necesarias pero son utiles para el trabajo de
 Location tracking and priority
 localización de la ubicación de las cintas, armario ignifugo , en movimiento, ubicacion alternativa.
 
-----------------------------Dia 2
-
-BACKUP
+##BACKUP
 
 L   M   X   J   V   S   D
 FULL + INCREMENTAL + INCREMENTAL ..... --> Se puede consolidar y hacer un full de todo esto se llama un Backup sintético
@@ -155,32 +156,16 @@ omnisv -stats para ver servicios arrancados en el cell manager
 ProgramData\omniback\log --> logs
 Modo Debug --> te lanza lo que hagas con modo debug se guardan en \tmp\archivodetexto_debug.txt
 
+Alternatives open source
 
 
 
 
 
 
-
-alternatives open source
 
 http://blog.bacula.org/
 Bareos --> https://www.netways.de/fileadmin/images/Events_Trainings/Events/OSDC/2016/Slides_2016/Maik_Aussendorf_-_bareos_Backup_Integration_with_Standard_Open_Source_Tools.pdf
 
-
-
-
-
-
-
-
-
-
-
+Certificación
 http://es.dumpblaster.com/Certification-HPE.html
-  
-  
-  
-  
-  
-  
