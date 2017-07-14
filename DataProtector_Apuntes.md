@@ -158,13 +158,22 @@ Modo Debug --> te lanza lo que hagas con modo debug se guardan en \tmp\archivode
 
 Alternatives open source
 
-
-
-
+TAP library HPE MSL 2024
+- Contraseña por defecto Administrador: 00000000
+- No se puede apagar desde la consola de administración solo se puede reiniciar el apagado se hace físico.
+- Si se hace algún cambio en la librería de mover cintas por ejemplo , hay que hacer un barcode scan sobre la librería en Data Protector.
 
 
 
 http://blog.bacula.org/
+https://www.baculasystems.com/
+Integradores de Bacula
+http://www.runsolutions.com/productos/bacula/
+http://conekia.es/sistemas/backup-corporativo-con-bacula/
+https://www.csr-online.net/sistemas/
+https://www.ultimobyte.es/productos/bacula-enterprise-open-source-backup
+
+
 Bareos --> https://www.netways.de/fileadmin/images/Events_Trainings/Events/OSDC/2016/Slides_2016/Maik_Aussendorf_-_bareos_Backup_Integration_with_Standard_Open_Source_Tools.pdf
 
 Certificación
