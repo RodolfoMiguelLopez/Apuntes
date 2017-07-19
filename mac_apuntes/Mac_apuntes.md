@@ -35,3 +35,5 @@ Restart iTerm2
 Menu iterm2 --> Install shell Integration confirm all steps.
 Restar iterm2
 
+
+– Solarized theme: http://ethanschoonover.com/solarized
