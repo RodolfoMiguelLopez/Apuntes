@@ -668,7 +668,7 @@ De esta manera ya tenemos conectado nuestro repositorio con nuestra máquina loc
 
 vamos a hacer lo que sería la conexión básica de nuestro repositorio con github
 
-- Creamos un directorio con mkdir
+- Creamos un directorio con mkdird
 - Entramos al directorio con cd
 - Creamos un archivo llamado archivo1.txt con el comando touch
 - iniciamos el repositorio con git init
