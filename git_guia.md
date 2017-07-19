@@ -852,43 +852,53 @@ Las wikis en Github no són documentación se usa para llevar una historia del p
 
 ##Deployment en AWS
 
-- Crear Cuenta
-- EC2 Dashboard
-- Network and Security
-	- Create Key Pair
-	- Descargamos loquesea.pem
-	- Le damos permisos de solo lectura al archivo ( opcional )
+Crear Cuenta de usuario , la cuenta de usuario principal no es conveniente usarla para el acceso de trabajo solo como administración o como emergencia.
+
+- Security, Identity & Compliance
+	- IAM
+		- Creamos Usuario
+		- Creamos Grupo
+		- Generamos link de acceso
+		- Configuramos política de contraseñas
+- Compute
+	- EC2
+		- Network and Security
+			- Key Pairs
+				- Create Key pair
+				- Creamos una llave con el nombre que queramos
+				- Descargamos el archivo.pem
+				- Le damos permisos de solo lectura al archivo ( opcional )
 ```
 chmod 0600 ejemplo.pem
 ```
-	- Security Groups
-		- Nuevo Grupo
-		- name: load-balancer
-		- description: Allow 80
-		- Add Rule
-		- Type: HTTP
-		- Protocol: TCP
-		- Port; 80
-		- Source: Anywhere
-		- Create
-- Load Balancing
-	- Load Balancers
-		- Create Load Balancer
-		- Load Balancer name: web-loadbalancer
-		- assing security groups
-		- El security group que hemos creado.
-		- Configure Health Check
-		- Add EC2 Instances
-		- No tocar nada hasta create
-		- Aqui ya tenemos creado el load balancer
-- Instances
-	- Instances
-		- Launch instances
-		- amazon linux
-		- t2 micro
-		- advanced details
-		- as text
-		- pegamos código 
+			- Security Groups
+				- Nuevo Grupo
+				- name: load-balancer-prueba
+				- description: Allow 80
+				- Add Rule
+				- Type: HTTP
+				- Protocol: TCP
+				- Port; 80
+				- Source: Anywhere
+				- Create
+			- Load Balancing
+				- Load Balancers
+					- Create Load Balancer
+					- Load Balancer name: web-loadbalancer
+					- assing security groups
+					- El security group que hemos creado.
+					- Configure Health Check
+					- Add EC2 Instances
+					- No tocar nada hasta create
+					- Aqui ya tenemos creado el load balancer
+			- Instances
+				- Instances
+					- Launch instances
+					- amazon linux
+					- t2 micro
+					- advanced details
+						- as text
+						- pegamos código 
 
 Para instalar todo lo que necesita el servidor
 ```
