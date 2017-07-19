@@ -928,6 +928,13 @@ sudo yum install git-all
 4. Generar ssh key y colocar la pública en GitHub.
 5. Hacer git clone.
 
+GITHUB PAGES
+
+Ahora necesitas crear la rama gh-pages de tu repositorio; actualiza la página actual y verá una página del repositorio algo así como la de abajo. Tú necesitas presionar el boton que dice Branch: master, digita gh-pages en el campo de texto, luego presiona el boton azul que dice Create branch: gh-pages. Esto crea una rama de código especial llamada gh-pages que es publicada en una ubicación especial. La URL toma la forma username.github.io/my-repository-name, asi en mi caso de ejemplo, la URL debería ser https://chrisdavidmills.github.io/my-repository. La página mostrada es la página index.html.
+
+
+
+
 POR AQUI
 
 https://platzi.com/clases/git-github/concepto/workflow-dinamico-en-equipos/workshop-deployment-en-web-hosting/material/
