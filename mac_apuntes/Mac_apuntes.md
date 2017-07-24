@@ -9,6 +9,7 @@ $ KillAll Finder
 Atajos de teclado:
 
 ¡ #+Flecha Arriba+3 --> Captura Pantalla y la deja en el escritorio
+
 ¡ #+Flecha Arriba+4 --> Selección Pantalla y la deja en el escritorio
 
 

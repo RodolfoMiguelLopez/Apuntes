@@ -916,7 +916,7 @@ service httpd start
 			- Launch
 			- Pide el archivo .pem
 			- launch instance
-			- 
+Una vez lanzada la instancia se accede por ssh 
 
 
 1. El permiso que hay que darle al archivo de la llave descargada es 0600: 
@@ -928,20 +928,139 @@ sudo yum install git-all
 4. Generar ssh key y colocar la pública en GitHub.
 5. Hacer git clone.
 
+Ejercicio -- Clase 29
+
+- Creación de multiusuarios en local
+
+```
+			$ cd ~/.ssh
+			$ ssh-keygen -t rsa -C "cuenta1@hola.com"
+			# Este será Usuario2
+			$ ssh-keygen -t rsa -C "cuenta2@hola.com"
+			# Este será Usuario2
+```
+Creamos varias cuentas de usuario en la misma máquina para ello creamos dos llaves ssh cada una de ellas con un email distinto y les damos diferentes nombres
+
+Agregamos las llaves correspondientes a cada uno de los usuarios en sus cuentas de usuario de github
+
+```
+$ cd ~/.ssh
+$ cat cuenta1
+# Insertamos en cuenta 1
+
+$ cat cuenta2
+# Insertamos en cuenta 2
+```
+
+Para poder usar las dos cuentas de ssh por la terminal necesitamos crear un archivo con el nombre
+config dentro de nuestra carpeta .ssh
+
+```
+$ cd ~/.ssh
+$ touch config
+$ nano config
+
+# githubCuenta1
+Host cuenta1
+   HostName github.com
+   User git
+   IdentityFile ~/.ssh/cuenta1
+
+# githubCuenta2
+Host cuenta2
+   HostName github.com
+   User git
+   IdentityFile ~/.ssh/cuenta2
+```
+Para crear el archivo tambien podemos hacerlo en un editor de texto escribiendo en la terminal del mac
+open config
+
+Ahora vamos a probar las llaves
+
+Borramos llaves de caché
+```	
+	$ ssh-add -D
+```
+	Agregamos nuevas llaves
+	
+```
+	$ ssh-add cuenta1
+	$ ssh-add cuenta2
+```
+
+Probamos las llaves
+
+```
+	$ ssh -T cuenta1
+	$ ssh -T cuenta2
+```
+Verificamos las cuentas creadas
+
+```
+Creamos carpeta usuario1
+Creamos carpeta usuario2
+	Los conectamos remotamente
+
+	Cuenta 1
+	$ git remote add origin git@cuenta1:universidadplatzi/blog-universidad.git
+
+	Cuenta 2
+	$ git remote add origin git@cuenta2:universidadplatzi/blog-universidad.git
+
+   En cuenta 1, configuramos
+	git config user.name "Nombre Usuario1"
+	git config user.email "email@usuario1"
+	
+   En cuenta 2, configuramos
+	git config user.name "Nombre Usuario2"
+	git config user.email "email@usuario2"
+
+```									
+Entramos en cada uno de los directorios de trabajo y agregamos los proyectos del repositorio
+
+```
+
+Cuenta 1 ( en su carpeta )
+$ git remote add origin git@cuenta1:universidadplatzi/blog-universidad.git
+Cuenta 2 ( en su carpeta
+$ git remote add origin git@cuenta2:universidadplatzi/blog-universidad.git
+
+En ambos, ejecutamos.
+
+$ git pull origin master
+
+```
+
+- Repositorios propios con Push
+- Repositorios forked con Pull Request
+- Deploy en Amazon Web Services
+
+
+
+
 GITHUB PAGES
 
 Ahora necesitas crear la rama gh-pages de tu repositorio; actualiza la página actual y verá una página del repositorio algo así como la de abajo. Tú necesitas presionar el boton que dice Branch: master, digita gh-pages en el campo de texto, luego presiona el boton azul que dice Create branch: gh-pages. Esto crea una rama de código especial llamada gh-pages que es publicada en una ubicación especial. La URL toma la forma username.github.io/my-repository-name, asi en mi caso de ejemplo, la URL debería ser https://chrisdavidmills.github.io/my-repository. La página mostrada es la página index.html.
+
+PROBLEMA PARA SUBIR ARCHIVOS CUANDO EL REPOSITORIO YA HA SIDO MODIFICADO Y NO DEJA HACER GIT PUSH
+
+Lo primero que hay que hacer es:
+
+- git fetch origin
+- git merge origin/master
+- Aparece para que dejes el mensaje del merge
+- Ahora si podemos hacer un git push origin master
 
 
 
 
 POR AQUI
 
-https://platzi.com/clases/git-github/concepto/workflow-dinamico-en-equipos/workshop-deployment-en-web-hosting/material/
+https://platzi.com/clases/git-github/concepto/workflow-dinamico-en-equipos/d-workflow-dinamico-en-equipos-ultimos-pasos/material/
 
-Clase 28
+Clase 30
 http://git.miguelnieva.com/#/292
-PROBANDO
+
 
 
 
