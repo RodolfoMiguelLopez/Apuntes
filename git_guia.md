@@ -1027,15 +1027,49 @@ $ git remote add origin git@cuenta2:universidadplatzi/blog-universidad.git
 
 En ambos, ejecutamos.
 
-$ git pull origin master
+$ git push origin master
 
 ```
 
-- Repositorios propios con Push
-- Repositorios forked con Pull Request
 - Deploy en Amazon Web Services
 
+Cuando creamos la instancia en AWS el servidor está vacio si hemos seguido los pasos anteriores y hemos instalado el entorno LAMP a la hora de crear el servidor en AWS, deberíamos tener la carpeta siguiente:
 
+```
+/var/www/html
+```
+estará vacía, si nos vamos a la ip que nos dá AWS deberíamos ver entre otros el siguiente mensaje:
+
+```
+If you are the website administrator:
+
+You may now add content to the directory /var/www/html/. Note that until you do so, people visiting your website will see this page, and not your content. To prevent this page from ever being used, follow the instructions in the file /etc/httpd/conf.d/welcome.conf.
+
+You are free to use the image below on web sites powered by the Apache HTTP Server:
+```
+Esto quiere decir que tenemos el servidor funcionando pero no tenemos ningún archivo y tampoco hay configurado nada.
+
+para hacer un deploy desde github deberemos de seguir los siguientes pasos:
+
+- $ cd blog
+- git init
+- git add -A
+- git commit -m "mensaje"
+- git remote add origin git@github.com:Repositorio.git
+- git push -u origin master
+
+Con esto ya tenemos nuestro contenido subido a github
+
+- No he conseguido hacer el deploy en aws con git add remote y luego haciendo un pull ya que me daba error de llaves ssh por lo que lo he hecho directamente con git clone para probar 
+- antes de hacer esto hay que instalar git en la instancia aws 
+
+```
+$ sudo yum install git
+```
+
+- git clone https://github.com/RodolfoMiguelLopez/blog.git
+
+Con esto ya tenemos nuestro contenido desplegado en aws 
 
 
 GITHUB PAGES
@@ -1052,14 +1086,13 @@ Lo primero que hay que hacer es:
 - Ahora si podemos hacer un git push origin master
 
 
+39 Desafio 1- Crear un blog en Github Pages
 
-
-POR AQUI
-
-https://platzi.com/clases/git-github/concepto/workflow-dinamico-en-equipos/d-workflow-dinamico-en-equipos-ultimos-pasos/material/
-
-Clase 30
+Clase 39
 http://git.miguelnieva.com/#/292
+
+https://techandbeyond.wordpress.com/2013/04/25/amazon-ec2-crear-un-usuario-nuevo-y-darle-acceso-ssh-con-password-y-llave-rsapassphrase/
+https://bluezink.es/configurar-git-server-en-una-instancia-ec2/
 
 
 
