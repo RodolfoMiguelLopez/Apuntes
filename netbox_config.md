@@ -133,3 +133,5 @@ Netbox
 
 para acceder a netbox podemos ir a la dirección de la máquina por el explorador las credenciales por defecto son:
 admin / admin
+
+Para levantar servicios netbox hay que ir a la carpeta docker-netbox y ejecutar el comando docker-compose up -d

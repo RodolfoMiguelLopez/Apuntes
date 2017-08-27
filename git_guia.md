@@ -1,4 +1,4 @@
-#GIT apuntes curso PLATZI
+#GIT apuntes 
 
 Instalación de Git para mac:
 
