@@ -1085,6 +1085,12 @@ Lo primero que hay que hacer es:
 - Aparece para que dejes el mensaje del merge
 - Ahora si podemos hacer un git push origin master
 
+---
+##Creando Un blog en Github##
+
+1 - Creamos un repositorio nuevo llamado "blog"
+2 - 
+
 
 39 Desafio 1- Crear un blog en Github Pages
 
