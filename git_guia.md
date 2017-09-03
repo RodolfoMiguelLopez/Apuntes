@@ -1086,15 +1086,43 @@ Lo primero que hay que hacer es:
 - Ahora si podemos hacer un git push origin master
 
 ---
-##Creando Un blog en Github##
+##Creando Un blog en Github con HTML5##
 
-1 - Creamos un repositorio nuevo llamado "blog"
-2 - 
+1 - Creamos un repositorio nuevo llamado "blog" en github
+2 - Creamos carpeta en local con el nombre del repositorio ( Podemos usar la carpeta del proyecto que quieres subir ) podemos usar html5up.net o jekyll 
+3 - iniciamos git en local en la carpeta seleccionada git init
+4 - Conectamos remotamente esta carpeta con el repositorio creado git remote add origin (direccion ssh del repositorio)
+5 - Creamos la rama gh-pages (esto es opcional para jekyll se puede crear tambien en master) git checkout -b gh-pages
+6 - agregamos archivos que queremos subir al repositorio git add -A
+7 - cremos el primer commit git commit -m "base blog"
+8 - push remote origin gh-pages ( o master)
+9 - editamos el repositorio y ponemos una descripción y el website http://usuario.github.io/blog
+10 -Si vamos a la dirección hhtp://usuario.github.io/blog veremos la web
+
+##Creando Un blog en Github con Jekyll##
+
+Los pasos son parecidos a los anteriores lo único que por ejemplo para este tipo de archivos se remcomienda dejarlos en master y que para que el blog finalmente se vea hay que editar la pestaña settings y en el nombre del repositorio hay que poner el nombre de usuario seguido de github.io ( usuario.github.io) de lo contrario nuestro blog no funcionará.
+
+##Usando gitignore 
+
+Git ignore se usa para que git no tenga en cuenta archivos que no queremos manterner sincronizados en nuestro directorio para poder decirle que archivos queremos ignorar se lo indicaremos en el archivo .gitignore si no se ha creado en la instalación del repositorio lo podemos crear nosotros , dentro incluiremos las extensiones *.txt ( para no incluir todos los txt ) o archivo.txt para ignorar un archivo específico.
+
+en la siguiente dirección hay extensiones de ejmplo que deberíamos de ignorar a modo de ejemplo para nuestros proyecto.
+
+https://github.com/github/gitignore
+
+##Git Dif
+
+Se usa para comparar commits para poder hacerlo podemos usar el comando git log para ver los commits hechos hasta ahora.
+
+nos colocamos con git checkout en el commit anterior al que queremos comparar y despues usamos git diff y el numero del commit que queremos ver los cambios y nos mostrará en pantalla ( esto es mucho más comodo hacerlo en github) nos muestra un panel dividido en dos partes y nos enseña a la vez los cambios realizados.
+
+##Git Stash
+
+Lo que hacemos con git stash es guardar los cambios temporalmente sin tener que crear una rama nueva y sin generar commit . para aplicarlo usamos git stash y nos crea una rama temporal con los cambios no guardados hasta ese momento , trabajamos con el proyecto y para volver a esos cambios usamos el comando git stash apply y volveremos a tener los cambios anteriores es como un guardar temporalmente , tambien podemos usar el comando git stash list para ver los diferentes stash por si tuiveramos mas de uno.
 
 
-39 Desafio 1- Crear un blog en Github Pages
-
-Clase 39
+##Diapositivas.
 http://git.miguelnieva.com/#/292
 
 https://techandbeyond.wordpress.com/2013/04/25/amazon-ec2-crear-un-usuario-nuevo-y-darle-acceso-ssh-con-password-y-llave-rsapassphrase/
