@@ -480,25 +480,161 @@ el stdout de cat va al stdin del bc el stdout de bc va a wc y la salida del wc v
 
 cat calculos | bc -q | wc -l > numero de líneas
 
+mandar un archivo a un ejecutable y la salida va a otro archivo
+el stderr sigue saliendo por pantalla 
 
+bc -q < calculos > resultado
 
+mandar un archivo a un ejecutable y la salida va a otro archivo
+para que mande todo a un archivo hay que especificarle.
 
+bc -q < calculos > resultado 2>&1
 
+si lo que quiero es mandar cada cosa a un archivo 
+de esta forma tenemos la salida del stdout por un lado y la de stderr por otro cada una en un archivo diferente.
 
+bc -q < calculos > resultado 2> errores
 
+Estas operaciones son muy útiles cuando estamos en un servidor desplegando algo y queremos tener el control de lo que está pasando podemos mandar las salidas de standart y error a ventanas diferentes y con el comando ```tail -f``` archivo podemos ver en vivo los resultados.
 
+Busqueda de contenido, archivos, carpetas y uso de Grep
 
+buscar dentro de un archivo, por ejemplo un nombre en un csv
 
+cat archivo.csv | grep nombre
 
+tambien puede ser que salgan resultados que contengan ese nombre para evitar esto , intentamos buscar el caracter anterior a como empieza el nombre normalmente una coma o un espacio y lo vamos a integrar en la búsqueda para que busque solo lo que queremos y al final le colocamos una expresión regular ```$```que significa fin de línea.
 
+```
+car archivo.csv | ,grep$
+```
 
+podemos concatenar con pipes para ver por ejemplo el número de líneas y si lo deseas mandar a un archivo.
 
+```
+cat archivo.csv | ,palabraabuscar$ | wc -l > numerodelineas
+cat archivo.csv | ,palabraabuscar$ > filtrado
+```
 
+Podemos hacerlo de otra manera usando el comando grep
 
+Comando + flag recursivo + carpeta actual en este caso (.) significa carpeta actual+ flag expresión + palabra a buscar, con o sin expresiones regulares.
 
+```
+ grep -r . -e ,palabraabuscar$ 
+```
+En este otro ejemplo usamos el comando grep dos veces para buscar una palabra y la salida nos sirve para filtrar y que no salga otra palabra en la busqueda con el flag -v
 
+```
+grep -r . -e palabraabuscar | grep -v esta_palabra_no
+```
+Otro ejemplo a buscar pero esta vez estamos buscando al principio de la línea con la expresion regular ```^```
 
+```
+grep -r . -e ^91,
+```
+Buscar archivos
 
+Con este comando lo que hacemos es buscar en nuestro directorio src todos los archivos con extensión csv de tipo fichero y a continuación con el comando -exec ( exclusivo de find) sirve para ejecutar algo después de cada resultado , hago que me salga el checksum md5 de cada uno y termino escapando con \;
+
+```
+find ~/src -name '*.csv' -type f -exec md5 {} \;
+```
+Con este comando parecido al de arriba lo que hago es copiar todos los csv que encuentre y copiarlos a la carpeta csvs_todos.
+
+```
+find ~/src -name '*.csv' -type f -exec cp {} csvs_todos/ \;
+```
+
+Para renombrar archivos por lotes
+
+buscara todos los archivos con el nombre de tipo fichero y ejecuta el comando mv del archivo que encontro a archivo que busco + la extensión .csv
+
+```
+find . -name 'nombrearchivos*' -type f -exec mv {} {}.csv \;
+```
+Split para cortar archivos
+
+con este comando lo que hacemos es cortar un archivo en este caso archivo_origen.csv en 3000 lineas desde una ubicación y ubicarlo en la nueva con la terminación fl_3000_ el ya se encargará de ponerle caracteres que no se puedan repetir.
+
+```
+split -l 3000 ../archivo_origen.csv ./fl_3000_
+```
+Curl
+
+Emula y genera un request a una URL
+
+uso sencillo para descargar el contenido de una web y lo muestra en pantalla
+
+```
+curl https://www.google.es
+```
+Baja el contenido de google.es y lo guarda en un archivo la bandera -o sirve para indicar que lo tiene que guardar en un archivo o = output
+
+```
+curl -o google_es.html https://www.google.es
+```
+
+bajo el contenido de una web en el formato de archivo original. Es una O mayuscula no un 0
+```
+curl -O https//www.web.es/nombrearchivo.mp3
+```
+tambien podemos buscar en el archivo sin tener que descargarlo en este caso me saldrán todas las lineas que contenga 1995 
+```
+curl -O https//www.web.es/nombrearchivo.dat | grep 1995
+```
+Para que no salga errores por pantalla podemos mandar el stderr a null para que no lo veamos
+```
+curl -O https//www.web.es/nombrearchivo.dat 2> /dev/null | grep 1995
+```
+podemos seguir añadiendo tantos pipes como queramos 
+
+```
+curl -O https//www.web.es/nombrearchivo.dat 2> /dev/null | grep 1995 | wc -l
+```
+PARA MANDAR INFORMACION
+
+El principal propósito y uso para cURL es automatizar transferencias de archivos o secuencias de operaciones no supervisadas. Es por ejemplo, una herramienta válida para simular las acciones de usuarios en un navegador web.
+
+Soporta los protocolos FTP, FTPS, HTTP, HTTPS, TFTP, SCP, SFTP, Telnet, DICT, FILE y LDAP, entre otros.
+
+Documentación: https://curl.haxx.se/
+http://eu.httpbin.org/
+
+Uso de GET para mandar información a un servidor mandando las variables en el header
+va a httpbin.org y devuleve las variables que le mando.
+Nunca enviar información sensible con GET
+
+```
+curl http://httpbin.org/get?variable=2
+```
+para mandar varias variables podemos encadenar variables
+
+```
+curl "http://httpbin.org/get?variable=2&varibale2=3&variable_4=5"
+```
+Enviar info con POST, lo que hacemos es enviar la información y el servidor nos devuelve la salida de esa info.
+
+```
+curl --data "variable1=1&variable2=2" http://httpbin.org/post
+```
+podemos cambiar el user-agent
+
+```
+curl -A estoesmiagente "http://httpbin.org/get?variable=2&varibale2=3&variable_4=5"
+```
+CRON:  administrador regular de procesos en segundo plano (demonio) que ejecuta procesos o guiones a intervalos regulares (por ejemplo, cada minuto, día, semana o mes). Los procesos que deben ejecutarse y la hora en la que deben hacerlo se especifican en el fichero crontab. El nombre cron viene del griego chronos (χρόνος) que significa "tiempo".
+Cron se podría definir como el "equivalente" a Tareas Programadas de Windows.
+
+para ver los scripts que tenemos 
+
+crontab -l
+
+***** = minutos,horas,dia,mes,dia_semana
+
+para crear una nueva tarea de cron
+
+crontab -e
 
 
 

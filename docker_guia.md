@@ -1776,6 +1776,12 @@ docker [comando] --help
 sudo docker daemon -H tcp://0.0.0.0:2375 --tlsverify --tlscacert=./ca.pem --tlscert=./server-cert.pem --tlskey=./server-key.pem
 
 
+##bases de datos postgre
+
+psql -U netbox netbox
+https://www.linuxito.com/programacion/333-como-exportar-y-restaurar-bases-de-datos-postgres
+
+
 #VAMOS POR AQUI
 https://platzi.com/clases/docker/concepto/redes-multi-host-y-docker-swarm/c-docker-machine/material/
 

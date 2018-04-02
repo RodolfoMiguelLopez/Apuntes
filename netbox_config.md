@@ -7,7 +7,7 @@ pass: toor
 instalación de dependencias:
 
 apt-get install curl
-apt-get install ssh
+apt-get install ssh	
 
 
 instalamos docker
@@ -27,6 +27,14 @@ apt-get upgrade
 apt-get install open-vm-tools-desktop
 
 instalamos docker-compose
+```
+sudo curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+```
+damos permisos
+
+```
+sudo chmod +x /usr/local/bin/docker-compose
+```
 
 Descargamos la imagen de netbox
 
@@ -135,3 +143,47 @@ para acceder a netbox podemos ir a la dirección de la máquina por el explorado
 admin / admin
 
 Para levantar servicios netbox hay que ir a la carpeta docker-netbox y ejecutar el comando docker-compose up -d
+
+##Copias de seguridad de docker
+
+Hacemos un docker ps
+copiamos el comit y le ponemos un nombre a la imagen
+docker commit -p 95cfdf59f3d6 nginx-backup
+vemos la imagen con docker images
+hacemos una copia de la imagen comprimida
+docker save -o nginx-backup.tar nginx-backup
+ya solo tenemos que copiar la imagen a otro lugar
+
+
+##restaurar
+
+Step 1. locate your backup tar file
+Step 2. type docker load -i yourtarfile.tar
+Step 3. Docker run and verify your backup
+
+
+##varios
+
+copiar archivos desde docker y hacia docker
+
+entrar en la imagen 
+docker run -it --name nombreimagen imagen /bin/bash
+
+copiar algo de la imagen hacia el equipo anfitrion
+
+docker cp nombreimagen:/ruta archivo .
+
+al reves
+
+docker cp ./archivo nombreimagen:/
+
+docker exec -it imagen /bin/bash
+
+---backup de postgreesql
+
+pg_dump database > my_database_backup.sql
+psql database < my_database_backup.sql
+
+
+https://www.youtube.com/watch?v=MrKkSduReN0
+https://www.youtube.com/watch?v=tyR8R58cRY4

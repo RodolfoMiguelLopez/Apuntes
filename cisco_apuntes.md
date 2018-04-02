@@ -978,3 +978,4 @@ Fuentes
 
 [^NVRAM]: NVRAM: (Non-volatile random access memory) es un tipo de memoria de acceso aleatorio que, como su nombre indica, no pierde la información almacenada al cortar la alimentación eléctrica.
 [^RAM]: RAM: (Random Access Memory, RAM) se utiliza como memoria de trabajo y cuando se apaga la máquina pierde todo su contenido.
+****

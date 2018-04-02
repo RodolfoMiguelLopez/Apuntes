@@ -11,7 +11,7 @@ Hola Bienvenido al repositorio de Apuntes.
 
 Guías |Apuntes |Configuraciones
 ---|---|---
-Linux | Cisco | SublimeText2
-MarkDown | Checkpoint | SSh
+Linux | Cisco | SublimeText2_config
+MarkDown | Checkpoint | SSh_config
 Git | MTA_98-366 | metasploit
  | | Netbox
