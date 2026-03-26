@@ -27,7 +27,7 @@ Repositorio personal de apuntes, guías y configuraciones técnicas sobre redes,
 - [cisco-apuntes.md](redes/cisco-apuntes.md) — Apuntes completos del curso Cisco CCNA (Udemy): comandos, VLANs, routing, PPP, Frame Relay
 - [cisco-etherchannel.md](redes/cisco-etherchannel.md) — Configuración de EtherChannel en switches Cisco
 - [cisco-reset.md](redes/cisco-reset.md) — Reset de contraseña en Catalyst 2950 y 2960-CG
-- [ccna-mccd.md](redes/ccna-mccd.md) — Apuntes del curso CCNA: modos IOS, comandos, contraseñas, direccionamiento IP
+- [ccna-apuntes.md](redes/ccna-apuntes.md) — Apuntes del curso CCNA: modos IOS, comandos, contraseñas, direccionamiento IP
 - [mta-98-366.md](redes/mta-98-366.md) — Fundamentos de redes para el examen MTA 98-366 de Microsoft
 - [backup-netgear.md](redes/backup-netgear.md) — Backup de imágenes y configuración en switch NetGear M4100-26G
 
