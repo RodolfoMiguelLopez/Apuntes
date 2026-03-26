@@ -603,12 +603,12 @@ echo "# ejercicio" >> README.md
 git init
 git add README.md
 git commit -m "first commit"
-git remote add origin git@github.com:RodolfoMiguelLopez/ejercicio.git
+git remote add origin git@github.com:tuusuario/ejercicio.git
 git push -u origin master
 
 …or push an existing repository from the command line
 
-git remote add origin git@github.com:RodolfoMiguelLopez/ejercicio.git
+git remote add origin git@github.com:tuusuario/ejercicio.git
 git push -u origin master
 
 …or import code from another repository
@@ -685,7 +685,7 @@ vamos a hacer lo que sería la conexión básica de nuestro repositorio con gith
 Si hemos puesto contraseña nos la pedirá y una vez introducida subirá el repositorio 
 si nos vamos al repositorio podremos ver el archivo creado.
 
-https://github.com/RodolfoMiguelLopez/ejercicio
+https://github.com/tuusuario/ejercicio
 
 ```
 Mbp:Desktop User$ mkdir prueba
@@ -698,7 +698,7 @@ Mbp:prueba User$ git commit -m "archivos base"
 [master (root-commit) 70c0cf1] archivos base
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 archivo1.txt
-Mbp:prueba User$ git remote add origin git@github.com:RodolfoMiguelLopez/ejercicio.git
+Mbp:prueba User$ git remote add origin git@github.com:tuusuario/ejercicio.git
 Mbp:prueba User$ git push origin master
 Warning: Permanently added the RSA host key for IP address '192.168.100.11' to the list of known hosts.
 Saving password to keychain failed
@@ -706,7 +706,7 @@ Identity added: /Users/User/.ssh/id_rsa ((null))
 Counting objects: 3, done.
 Writing objects: 100% (3/3), 223 bytes | 0 bytes/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
-To github.com:RodolfoMiguelLopez/ejercicio.git
+To github.com:tuusuario/ejercicio.git
  * [new branch]      master -> master
 ```
 Cuando trabajamos con repositorios remotos disponemos de tres ramas.
@@ -772,64 +772,64 @@ git push origin master | subimos cambios al repositorio
 
 - practica pull request
 
-Mbp:Desktop kapi_tan$ mkdir README
-Mbp:Desktop kapi_tan$ cd README/
-Mbp:README kapi_tan$ ls
-Mbp:README kapi_tan$ git init
-Initialized empty Git repository in /Users/kapi_tan/Desktop/README/.git/
-Mbp:README kapi_tan$ git remote add origin git@github.com:RodolfoMiguelLopez/README.git
-Mbp:README kapi_tan$ git remote -v
-origin	git@github.com:RodolfoMiguelLopez/README.git (fetch)
-origin	git@github.com:RodolfoMiguelLopez/README.git (push)
-Mbp:README kapi_tan$ git remote add upstream https://github.com/anjogago85/README.git
-Mbp:README kapi_tan$ git remote -v
-origin	git@github.com:RodolfoMiguelLopez/README.git (fetch)
-origin	git@github.com:RodolfoMiguelLopez/README.git (push)
+Mbp:Desktop usuario$ mkdir README
+Mbp:Desktop usuario$ cd README/
+Mbp:README usuario$ ls
+Mbp:README usuario$ git init
+Initialized empty Git repository in /Users/usuario/Desktop/README/.git/
+Mbp:README usuario$ git remote add origin git@github.com:tuusuario/README.git
+Mbp:README usuario$ git remote -v
+origin	git@github.com:tuusuario/README.git (fetch)
+origin	git@github.com:tuusuario/README.git (push)
+Mbp:README usuario$ git remote add upstream https://github.com/anjogago85/README.git
+Mbp:README usuario$ git remote -v
+origin	git@github.com:tuusuario/README.git (fetch)
+origin	git@github.com:tuusuario/README.git (push)
 upstream	https://github.com/anjogago85/README.git (fetch)
 upstream	https://github.com/anjogago85/README.git (push)
-Mbp:README kapi_tan$ Creamos un archivo con la cuenta anjogago85
+Mbp:README usuario$ Creamos un archivo con la cuenta anjogago85
 -bash: Creamos: command not found
-Mbp:README kapi_tan$ git fetch origin
+Mbp:README usuario$ git fetch origin
 remote: Counting objects: 4, done.
 remote: Compressing objects: 100% (3/3), done.
 remote: Total 4 (delta 0), reused 4 (delta 0), pack-reused 0
 Unpacking objects: 100% (4/4), done.
-From github.com:RodolfoMiguelLopez/README
+From github.com:tuusuario/README
  * [new branch]      master     -> origin/master
-Mbp:README kapi_tan$ git merge origin/master
-Mbp:README kapi_tan$ hasta aquí solo tenemos los archivos de nuestro repositorio el nuevo que hizo anjogago no lo tengo
+Mbp:README usuario$ git merge origin/master
+Mbp:README usuario$ hasta aquí solo tenemos los archivos de nuestro repositorio el nuevo que hizo anjogago no lo tengo
 -bash: hasta: command not found
-Mbp:README kapi_tan$ git fetch upstream
+Mbp:README usuario$ git fetch upstream
 remote: Counting objects: 3, done.
 remote: Compressing objects: 100% (2/2), done.
 remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
 Unpacking objects: 100% (3/3), done.
 From https://github.com/anjogago85/README
  * [new branch]      master     -> upstream/master
-Mbp:README kapi_tan$ git merge upstream/master
+Mbp:README usuario$ git merge upstream/master
 Updating 8dfe5f0..fe8cd43
 Fast-forward
  amazing.txt | 1 +
  1 file changed, 1 insertion(+)
  create mode 100644 amazing.txt
-Mbp:README kapi_tan$ ahora que ya tenemos todo sincronizado vamos a proponer un archivo nuevo
+Mbp:README usuario$ ahora que ya tenemos todo sincronizado vamos a proponer un archivo nuevo
 -bash: ahora: command not found
-Mbp:README kapi_tan$ touch españa.txt
-Mbp:README kapi_tan$ git add -A
-Mbp:README kapi_tan$ git commit -m "propuesta"
+Mbp:README usuario$ touch españa.txt
+Mbp:README usuario$ git add -A
+Mbp:README usuario$ git commit -m "propuesta"
 [master 3963135] propuesta
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 españa.txt
-Mbp:README kapi_tan$ ahora subimos todos los cambios realizados a nuestro propio repositorio
+Mbp:README usuario$ ahora subimos todos los cambios realizados a nuestro propio repositorio
 -bash: ahora: command not found
-Mbp:README kapi_tan$ git push origin master
+Mbp:README usuario$ git push origin master
 Counting objects: 6, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (4/4), done.
 Writing objects: 100% (6/6), 583 bytes | 0 bytes/s, done.
 Total 6 (delta 1), reused 0 (delta 0)
 remote: Resolving deltas: 100% (1/1), done.
-To github.com:RodolfoMiguelLopez/README.git
+To github.com:tuusuario/README.git
    8dfe5f0..3963135  master -> master
 
 Despues de este paso me voy a github y le hago un pull request y le pongo un comentario con lo que quiero modificar para que lo acepten o no al proyecto , puede hacer un intercambio de mensajes previo antes de aceptar la fusión y una vez aceptada habrás contribuido con tu código en un repositorio remoto.
@@ -1067,7 +1067,7 @@ Con esto ya tenemos nuestro contenido subido a github
 $ sudo yum install git
 ```
 
-- git clone https://github.com/RodolfoMiguelLopez/blog.git
+- git clone https://github.com/tuusuario/blog.git
 
 Con esto ya tenemos nuestro contenido desplegado en aws 
 

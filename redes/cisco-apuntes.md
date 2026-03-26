@@ -39,7 +39,7 @@ Y88b  d88P  888  Y88b  d88P Y88b  d88P Y88b. .d88P
 ### Curso Cisco Apuntes Udemy
 [Acces al Curso](https://www.udemy.com/redes-con-equipos-cisco-ccna-200-120/learn/v4/overview)
 
-![](file:///Users/kapi_tan/Desktop/apuntes/Redes/cisco/img/Ciscobootprocess.jpg)
+
 
 En la NVRAM [^NVRAM] se almacena **startup-config** — > Es la Configuración inicial
 

@@ -288,7 +288,7 @@ user@user-VirtualBox:~$ docker ps -a --no-trunc
 Comando para proveer al contenedor de un nombre:
 
 ```bash
-user@user-VirtualBox:~$ docker run --name rodolfo ubuntu ls
+user@user-VirtualBox:~$ docker run --name micontenedor ubuntu ls
 ```
 
 - docker start [ID][nombre] | vuelve a ejecutar un contenedor que ya está parado
@@ -1575,7 +1575,7 @@ ea66358c33e8        none                null                local
 ```
 Vamos a crear la siguiente estructura de red:
 
-![](file:///Users/kapi_tan/Desktop/apuntes/docker/img/redes.jpg)
+
 
 De lo que se trata aquí es hacer una aquitectura donde hay 3 container el container 1 está en la red bridge0 , el container 3 está en mi_red y el container 2 puede acceder a las dos redes.
 

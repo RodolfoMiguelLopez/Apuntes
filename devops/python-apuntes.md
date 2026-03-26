@@ -307,7 +307,7 @@ En este caso al igual que con la condición IF sola no es necesario terminar con
 
 Lograr que el programa realice un ciclo, repitiendo un conjunto de instrucciones.
 
-![](file:///Users/kapi_tan//SynologyDrive/Escritorio/apuntes/img/python/while_loop.jpg)
+
 
 Mientras la condición sea verdadera pasarán al código correspondiente, cuando la condición sea falsa se saldrá del ciclo.
 
